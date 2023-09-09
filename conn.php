@@ -4,6 +4,8 @@
 // $username = "si";
 // $password = "nq7NqisGaJ9cA1hP";
 // $dbname = "dbsmartfarming";
+
+/* Local */
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -19,5 +21,3 @@ date_default_timezone_set("Asia/Jakarta");
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
-?>
