@@ -18,31 +18,31 @@ $selisihDetik = $diff->s; // Selisih bagian detik (int)
 /* 
     Jika selisih now_time dengan updated_at sudah > durasi maka Set variable status menjadi 0 dan update nilai updated_at 
 */
-if ($selisihDetik >= $durasi) {
-    $sql = "UPDATE `voice_penyiram` SET
-        `status` = 0
-    WHERE id = 1";
+// if ($selisihDetik >= $durasi) {
+//     $sql = "UPDATE `voice_penyiram` SET
+//         `status` = 0
+//     WHERE id = 1";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Succes update" . "<br>";
-    } else {
-        echo "Error updating record: " . $conn->error . "<br>";
-    }
-    // Close the connection
-    $conn->close();
-}
+//     if ($conn->query($sql) === TRUE) {
+//         echo "Succes update" . "<br>";
+//     } else {
+//         echo "Error updating record: " . $conn->error . "<br>";
+//     }
+//     // Close the connection
+//     $conn->close();
+// }
 
-echo "Interval : " . $selisihDetik . "<br>";
-echo "Status : " . $status;
+// echo "Interval : " . $selisihDetik . "<br>";
+// echo $status;
 
 /* Kalau pingin JSON pake ini, ntar echo nya dikomen semua */
-// $data = array(
-//     'interval' => $selisihDetik,
-//     'status' => $status
-// );
-// // Set the Content-Type header to JSON
-// header('Content-Type: application/json');
-// // Encode the data as JSON
-// $jsonData = json_encode($data);
-// // Output the JSON data
-// echo $jsonData;
+$data = array(
+    'durasi' => $durasi,
+    'status' => $status
+);
+// Set the Content-Type header to JSON
+header('Content-Type: application/json');
+// Encode the data as JSON
+$jsonData = json_encode($data);
+// Output the JSON data
+echo $jsonData;
